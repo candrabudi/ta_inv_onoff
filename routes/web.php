@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ReportController;
 use App\Http\Controllers\StockController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\UserController;
@@ -47,4 +48,16 @@ Route::middleware('auth')->group(function () {
     Route::get('/stocks/list', [StockController::class, 'list'])->name('stocks.list');
     Route::post('/stocks/restock', [StockController::class, 'restock'])->name('stocks.restock');
     Route::get('/stocks/{product}/history', [StockController::class, 'history'])->name('stocks.history');
+});
+
+Route::prefix('reports')->name('reports.')->middleware(['auth'])->group(function () {
+    Route::get('/', [ReportController::class, 'index'])->name('index');
+
+    Route::get('/stock-summary', [ReportController::class, 'stockSummary'])->name('stock_summary');
+    Route::get('/stock-history', [ReportController::class, 'stockHistory'])->name('stock_history');
+    Route::get('/transactions', [ReportController::class, 'transactions'])->name('transactions');
+
+    Route::get('/export/stock-summary', [ReportController::class, 'exportStockSummary'])->name('export.stock_summary');
+    Route::get('/export/stock-history', [ReportController::class, 'exportStockHistory'])->name('export.stock_history');
+    Route::get('/export/transactions', [ReportController::class, 'exportTransactions'])->name('export.transactions');
 });

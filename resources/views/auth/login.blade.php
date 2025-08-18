@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>{{ $setting->value ?? 'Website' }} - Login</title>
+    <title>Login | PT LIN INDONESIA SUKSES</title>
 
     <link href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;900&display=swap" rel="stylesheet">
@@ -79,7 +79,7 @@
                             <div class="col-lg-6">
                                 <div class="p-5">
                                     <div class="text-center mb-4">
-                                        <h1 class="h4 text-black">Welcome Back to {{ $setting->value ?? 'Website' }}!
+                                        <h1 class="h4 text-black">PT LIN INDONESIA SUKSES!
                                         </h1>
                                     </div>
 

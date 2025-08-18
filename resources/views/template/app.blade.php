@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Safety Inventory - @yield('title')</title>
+    <title>@yield('title') | PT LIN INDONESIA SUKSES</title>
 
     <link href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
     <link
@@ -29,31 +29,30 @@
 
             <hr class="sidebar-divider my-0">
 
-            <li class="nav-item">
+            <li class="nav-item {{ request()->routeIs('dashboard') ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route('dashboard') }}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span>
                 </a>
             </li>
 
-
             <hr class="sidebar-divider">
 
-            <li class="nav-item">
+            <li class="nav-item {{ request()->routeIs('products.*') ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route('products.index') }}">
                     <i class="fas fa-fw fa-box"></i>
                     <span>Produk</span>
                 </a>
             </li>
 
-            <li class="nav-item">
+            <li class="nav-item {{ request()->routeIs('transactions.*') ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route('transactions.index') }}">
                     <i class="fas fa-fw fa-shopping-cart"></i>
                     <span>Transaksi</span>
                 </a>
             </li>
 
-            <li class="nav-item">
+            <li class="nav-item {{ request()->routeIs('stocks.*') ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route('stocks.index') }}">
                     <i class="fas fa-fw fa-warehouse"></i>
                     <span>Stok</span>
@@ -62,13 +61,13 @@
 
             @if (Auth::user()->role === 'admin')
                 <hr class="sidebar-divider">
-                <li class="nav-item">
+                <li class="nav-item {{ request()->routeIs('categories.*') ? 'active' : '' }}">
                     <a class="nav-link" href="{{ route('categories.index') }}">
                         <i class="fas fa-fw fa-tags"></i>
                         <span>Kategori</span>
                     </a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item {{ request()->routeIs('users.*') ? 'active' : '' }}">
                     <a class="nav-link" href="{{ route('users.index') }}">
                         <i class="fas fa-fw fa-users"></i>
                         <span>Users</span>
@@ -76,11 +75,19 @@
                 </li>
             @endif
 
+            <li class="nav-item {{ request()->routeIs('reports.*') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('reports.index') }}">
+                    <i class="fas fa-fw fa-file-excel"></i>
+                    <span>Laporan</span>
+                </a>
+            </li>
+
             <hr class="sidebar-divider d-none d-md-block">
             <div class="text-center d-none d-md-inline">
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>
             </div>
         </ul>
+
 
         <div id="content-wrapper" class="d-flex flex-column">
             <div id="content">
@@ -165,7 +172,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>&copy; {{ date('Y') }} Safety Inventory</span>
+                        <span>&copy; {{ date('Y') }} PT LIN INDONESIA SUKSES</span>
                     </div>
                 </div>
             </footer>

@@ -1,5 +1,5 @@
 @extends('template.app')
-
+@section('title', 'Data Kategori')
 @section('content')
     <div class="card shadow mb-4">
         <div class="card-header py-3">
