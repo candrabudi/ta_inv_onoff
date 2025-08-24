@@ -15,6 +15,15 @@ class ProductController extends Controller
         return view('products.index', compact('categories'));
     }
 
+    public function data(Request $request)
+    {
+        $query = Product::with('category');
+
+        $products = $query->orderBy('created_at', 'desc')->get();
+
+        return response()->json($products);
+    }
+
     public function list(Request $request)
     {
         $query = Product::with('category');

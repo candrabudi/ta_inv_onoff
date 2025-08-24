@@ -193,7 +193,7 @@
                 $('#transactionType').val('offline');
                 $('#transactionProducts tbody').html(
                     '<tr><td colspan="4" class="text-center">Memuat...</td></tr>');
-                $.get("{{ route('products.list') }}", function(products) {
+                $.get("{{ route('products.data') }}", function(products) {
                     let rows = '';
                     products.forEach(function(p) {
                         rows += `<tr data-id="${p.id}">
